@@ -13,25 +13,20 @@ const StudentList = () => {
         setStudents({
           students: res.data
         });
-        //console.log(students);
       })
       .catch(error => {
         console.log(error);
       });
   }, []); //notice the empty array here
 
-  const DataTable = students => {
-    return (
-      <div>
-        {students.map(student => {
-          return <StudentTableRow obj={student} key={student.id} />;
-        })}
-      </div>
-    );
-    // return students.map(student => {
-    //   return <StudentTableRow obj={student} key={student.id} />;
-    // });
-  };
+  // const DataTable = students => {
+  //   setTimeout(() => {
+  //     console.log(students.students);
+  //     // return students[0].map(kid => {
+  //     //   return <td key={kid._id}>{kid.name}</td>;
+  //     // });
+  //   }, 2000);
+  // };
 
   return (
     <div className='table-wrapper'>
@@ -44,7 +39,11 @@ const StudentList = () => {
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>{DataTable(students)}</tbody>
+        <tbody>
+          {students.map(student => {
+            return <StudentTableRow obj={student} key={student.id} />;
+          })}
+        </tbody>
       </Table>
     </div>
   );
