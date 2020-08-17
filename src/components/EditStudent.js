@@ -52,8 +52,6 @@ const EditStudent = student => {
       rollno
     };
 
-    console.log(studentObject);
-
     axios
       .put('http://localhost:4000/students/update-student/' + id, studentObject)
       .then(res => {
@@ -65,7 +63,9 @@ const EditStudent = student => {
       });
 
     // Redirect to Student List
-    history.push('/student-list');
+    setTimeout(() => {
+      history.push('/student-list');
+    }, 500);
   };
 
   return (
