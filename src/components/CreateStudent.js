@@ -30,7 +30,9 @@ const CreateStudent = () => {
       .post('http://localhost:4000/students/create-student', studentObject)
       .then(res => console.log(res.data));
 
-    //this.setState({ name: '', email: '', rollno: '' });
+    setName('');
+    setEmail('');
+    setRollNo('');
   };
 
   return (
